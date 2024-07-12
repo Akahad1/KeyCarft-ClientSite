@@ -33,11 +33,9 @@ const Header = () => {
                 <Link to="/">Home</Link>
               </button>
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg text-white ">
-                <Link to="/products">Products</Link>
+                <Link to="/productsPage">Products</Link>
               </button>
-              <button className="lg:mr-10 lg:mt-0 mt-1 text-lg text-white ">
-                <Link to="/">Home</Link>
-              </button>
+
               <button className="lg:mr-10 lg:mt-0 mt-1 text-lg text-white ">
                 <Link to="/aboutUs">About Us</Link>
               </button>
@@ -62,11 +60,9 @@ const Header = () => {
               <Link to="/">Home</Link>
             </button>
             <button className="lg:mr-10 lg:text-xl text-white ">
-              <Link to="/products">Products</Link>
+              <Link to="/productsPage">Products</Link>
             </button>
-            <button className="lg:mr-10 lg:text-xl text-white ">
-              <Link to="/">Home</Link>
-            </button>
+
             <button className="lg:mr-10 lg:text-xl text-white ">
               <Link to="/aboutUs">About Us</Link>
             </button>

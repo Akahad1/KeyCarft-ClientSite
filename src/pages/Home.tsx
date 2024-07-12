@@ -1,14 +1,20 @@
+import AllProduct from "../components/AllProduct";
 import Banner from "../components/Banner";
-import Header from "../components/Header";
+import CustomerReviews from "../components/CustomerReviews";
+import FeaturedBrands from "../components/FeaturedBrands";
 import ServiceAdvertisement from "../components/ServiceAdvertisement";
+import WhyChoose from "../components/WhyChoose";
 
 const Home = () => {
   return (
     <div className=" ">
-      <Header></Header>
-      <div className="bg-[#12151e] ">
+      <div>
         <Banner></Banner>
         <ServiceAdvertisement></ServiceAdvertisement>
+        <AllProduct></AllProduct>
+        <FeaturedBrands></FeaturedBrands>
+        <CustomerReviews></CustomerReviews>
+        <WhyChoose></WhyChoose>
       </div>
     </div>
   );

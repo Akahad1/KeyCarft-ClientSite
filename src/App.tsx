@@ -1,9 +1,15 @@
-import Home from "./pages/Home";
+import { Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Home></Home>
+      <Header></Header>
+      <div className="bg-[#12151e] ">
+        <Outlet></Outlet>
+      </div>
+      <Footer></Footer>
     </>
   );
 }
