@@ -1,7 +1,9 @@
+import ShowProduct from "../components/Dashboard/ShowProduct";
+
 const Dashboard = () => {
   return (
     <div>
-      <h1>Hello, Dashboard!</h1>
+      <ShowProduct></ShowProduct>
     </div>
   );
 };

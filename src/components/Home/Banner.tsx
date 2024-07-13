@@ -1,7 +1,7 @@
-import img1 from "../../public/Images/carosol/flat-lay-keyboard-headphones-desktop.jpg";
-import img2 from "../../public/Images/carosol/office-desk-top-view.jpg";
-import img3 from "../../public/Images/carosol/top-view-desk-concept-with-laptop-mouse.jpg";
-import img4 from "../../public/Images/carosol/top-view-virtual-reality-headset-with-joystick.jpg";
+import img1 from "../../../public/Images/carosol/flat-lay-keyboard-headphones-desktop.jpg";
+import img2 from "../../../public/Images/carosol/office-desk-top-view.jpg";
+import img3 from "../../../public/Images/carosol/top-view-desk-concept-with-laptop-mouse.jpg";
+import img4 from "../../../public/Images/carosol/top-view-virtual-reality-headset-with-joystick.jpg";
 
 const Banner = () => {
   return (

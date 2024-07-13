@@ -1,9 +1,10 @@
-import AllProduct from "../components/AllProduct";
-import Banner from "../components/Banner";
-import CustomerReviews from "../components/CustomerReviews";
-import FeaturedBrands from "../components/FeaturedBrands";
-import ServiceAdvertisement from "../components/ServiceAdvertisement";
-import WhyChoose from "../components/WhyChoose";
+import AllProduct from "../components/Home/AllProduct";
+import Banner from "../components/Home/Banner";
+import CustomerReviews from "../components/Home/CustomerReviews";
+
+import FeaturedBrands from "../components/Home/FeaturedBrands";
+import ServiceAdvertisement from "../components/Home/ServiceAdvertisement";
+import WhyChoose from "../components/Home/WhyChoose";
 
 const Home = () => {
   return (

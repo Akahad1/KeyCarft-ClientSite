@@ -1,9 +1,9 @@
-import img1 from "../../public/Images/Barand/35115.jpg";
-import img2 from "../../public/Images/Barand/back-school-concept-with-pencil-keyboard-mouse-blue-background-flat-lay.jpg";
-import img3 from "../../public/Images/Barand/black-office-business-equipment-black-background.jpg";
-import img4 from "../../public/Images/Barand/crop-hand-using-keyboard-near-stationery-coffee.jpg";
-import img5 from "../../public/Images/Barand/keyboard_cartoon.jpg";
-import img6 from "../../public/Images/Barand/wireless-mouse-keyboard.jpg";
+import img1 from "../../../public/Images/Barand/35115.jpg";
+import img2 from "../../../public/Images/Barand/back-school-concept-with-pencil-keyboard-mouse-blue-background-flat-lay.jpg";
+import img3 from "../../../public/Images/Barand/black-office-business-equipment-black-background.jpg";
+import img4 from "../../../public/Images/Barand/crop-hand-using-keyboard-near-stationery-coffee.jpg";
+import img5 from "../../../public/Images/Barand/keyboard_cartoon.jpg";
+import img6 from "../../../public/Images/Barand/wireless-mouse-keyboard.jpg";
 
 const FeaturedBrands = () => {
   return (

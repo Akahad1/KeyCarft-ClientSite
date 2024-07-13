@@ -3,20 +3,45 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/l2/a4" }),
+
   endpoints: (builder) => ({
+    getCartData: builder.query({
+      query: () => ({
+        url: "/cart",
+        method: "GET",
+      }),
+    }),
     getProduct: builder.query({
       query: () => ({
         url: "/product",
         method: "GET",
       }),
     }),
-    getSingleProduct: builder.query({
+
+    getSpecificCartDara: builder.query({
       query: (id) => ({
-        url: `/product/${id}`,
+        url: `/cart/${id}`,
+
         method: "GET",
       }),
+    }),
+
+    addCartData: builder.mutation({
+      query: (data) => {
+        console.log("ServerData", data);
+        return {
+          url: `cart/create-cartData`,
+          method: "POST",
+          body: data,
+        };
+      },
     }),
   }),
 });
 
-export const { useGetProductQuery, useGetSingleProductQuery } = baseApi;
+export const {
+  useGetProductQuery,
+  useAddCartDataMutation,
+  useGetSpecificCartDaraQuery,
+  useGetCartDataQuery,
+} = baseApi;

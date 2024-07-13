@@ -17,15 +17,22 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home></Home> },
       { path: "/productsPage", element: <ProductsPage></ProductsPage> },
       { path: "/cart", element: <Cart></Cart> },
-      { path: "/checkout", element: <Checkout></Checkout> },
+
       { path: "/dashboard", element: <Dashboard></Dashboard> },
       { path: "/aboutUs", element: <AboutUs></AboutUs> },
       { path: "/contactUs", element: <ContactUs></ContactUs> },
+
       {
         path: "/product/:id",
         element: <ProductDetails></ProductDetails>,
         loader: async ({ params }) =>
           fetch(`http://localhost:5000/l2/a4/product/${params.id}`),
+      },
+      {
+        path: "/checkout/:id",
+        element: <Checkout></Checkout>,
+        loader: async ({ params }) =>
+          fetch(`http://localhost:5000/l2/a4/cart/${params.id}`),
       },
     ],
   },
