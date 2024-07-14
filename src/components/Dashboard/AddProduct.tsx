@@ -1,38 +1,79 @@
 import { toast } from "sonner";
 import { useAddProductDataMutation } from "../../redux/Features/baseApi";
+import { FormEvent } from "react";
+import PreventRefresh from "../Cart/PreventRefresh";
 
 const AddProduct = () => {
   const [addProductData] = useAddProductDataMutation();
-  const AddProductData = async (event) => {
+  const AddProductData = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
-    const title = form.name.value;
-    const brand = form.brand.value;
-    const quantity = form.quantity.value;
-    const price = form.price.value;
-    const rating = form.rating.value;
-    const description = form.description.value;
-    const image = form.image.value;
+    const form = event.target as HTMLFormElement; // Type assertion for event.target
+    // Type assertion for form field values
+    const brand = form.brand.value as string;
+    const title = form.titl.value as string;
+    const quantity = parseInt(form.quantity.value, 10); // Parse string to integer
+    const price = parseInt(form.price.value, 10);
+    const rating = parseInt(form.rating.value, 10);
+    const description = form.description.value as string;
+    const image = form.image.value as string;
+
     try {
       const updateProduct = {
         image,
         title,
         description,
         brand,
-        quantity: parseInt(quantity),
-        price: parseInt(price),
-        rating: parseInt(rating),
+        quantity,
+        price,
+        rating,
       };
+
       console.log(updateProduct);
+
+      // Replace with your addProductData function call
       const res = await addProductData(updateProduct);
+
       console.log(res);
-      if (res?.success) {
-        return toast.success("Product Add SuccessFully");
+
+      if (res.data) {
+        // Assuming you're using toast notifications
+        return toast.success("Product Added Successfully");
       }
     } catch (err) {
       console.log(err);
     }
   };
+
+  // const AddProductData = async (event) => {
+  //   event.preventDefault();
+  //   const form = event.target;
+  //   const title = form.name.value;
+  //   const brand = form.brand.value;
+  //   const quantity = form.quantity.value;
+  //   const price = form.price.value;
+  //   const rating = form.rating.value;
+  //   const description = form.description.value;
+  //   const image = form.image.value;
+  //   try {
+  //     const updateProduct = {
+  //       image,
+  //       title,
+  //       description,
+  //       brand,
+  //       quantity: parseInt(quantity),
+  //       price: parseInt(price),
+  //       rating: parseInt(rating),
+  //     };
+  //     console.log(updateProduct);
+  //     const res = await addProductData(updateProduct);
+  //     console.log(res);
+  //     if (res.data) {
+  //       return toast.success("Product Add SuccessFully");
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   return (
     <div>
       <div>
@@ -50,15 +91,15 @@ const AddProduct = () => {
               <p className="text-xl text-white">Upload You Product</p>
             </div>
             <form onSubmit={AddProductData}>
-              <div className="form-control mt-5 ">
+              <div className="form-control mt-5">
                 <label className="label">
                   <span className="label-text text-white"> Title</span>
                 </label>
                 <input
                   type="text"
-                  name="name"
-                  className="input input-bordered"
-                  placeholder=" Enter Name"
+                  name="titl"
+                  placeholder=" Enter title"
+                  className="input input-bordered "
                   required
                 />
               </div>
@@ -142,6 +183,7 @@ const AddProduct = () => {
                 <button type="submit" className="btn  mt-5 ">
                   Add Data
                 </button>
+                <PreventRefresh></PreventRefresh>
               </div>
             </form>
           </div>

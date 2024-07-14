@@ -1,11 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { TcartApiResponse } from "../../pages/Cart";
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/l2/a4" }),
 
   endpoints: (builder) => ({
-    getCartData: builder.query({
+    getCartData: builder.query<TcartApiResponse, void>({
       query: () => ({
         url: "/cart",
         method: "GET",

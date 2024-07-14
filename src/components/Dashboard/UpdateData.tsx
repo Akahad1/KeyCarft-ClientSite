@@ -1,12 +1,13 @@
 import { toast } from "sonner";
 import { useUpdateProductDataMutation } from "../../redux/Features/baseApi";
+import { FormEvent } from "react";
 
-const UpdateData = ({ id }) => {
+const UpdateData: React.FC<{ id: string }> = ({ id }) => {
   const [UpdateProductData] = useUpdateProductDataMutation();
-  const updateData = async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const title = form.name.value;
+  const updateData = async (event: FormEvent<HTMLFormElement>) => {
+    const form = event.target as HTMLFormElement;
+
+    const title = form.nam.value;
     const brand = form.brand.value;
     const quantity = form.quantity.value;
     const price = form.price.value;
@@ -26,11 +27,14 @@ const UpdateData = ({ id }) => {
       console.log(updateProduct);
       const res = await UpdateProductData({ id, updateProduct });
       console.log(res);
-      toast.success("Update Data SuccessFully");
+      if (res?.data) {
+        toast.success("Update Data SuccessFully");
+      }
     } catch (err) {
       console.log(err);
     }
   };
+
   return (
     <div>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -50,7 +54,7 @@ const UpdateData = ({ id }) => {
               </label>
               <input
                 type="text"
-                name="name"
+                name="nam"
                 className="input input-bordered"
                 placeholder=" Enter Name"
               />

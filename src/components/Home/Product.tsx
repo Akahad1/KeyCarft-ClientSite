@@ -1,8 +1,18 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
-
-const Product = ({ data }) => {
+interface ProductProps {
+  data: {
+    title: string;
+    image: string;
+    brand: string;
+    quantity: number;
+    price: number;
+    rating: number;
+    _id: string;
+  };
+}
+const Product: React.FC<ProductProps> = ({ data }) => {
   const { title, image, brand, quantity, price, rating, _id } = data;
 
   return (

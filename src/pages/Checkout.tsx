@@ -1,41 +1,27 @@
 import { AiFillPhone, AiOutlineMail } from "react-icons/ai";
 import { BsHouseAdd } from "react-icons/bs";
 import { RxAvatar } from "react-icons/rx";
-import { useLoaderData } from "react-router-dom";
 import { toast } from "sonner";
-import { useUpdateCartDataMutation } from "../redux/Features/baseApi";
 
-const Checkout = ({ count }) => {
-  console.log(count);
-  const { data } = useLoaderData();
-  console.log(data);
+const Checkout = () => {
+  // const { data } = useLoaderData();
+
   // const [UpdateCartData] = useUpdateCartDataMutation();
 
-  const updateStoke = async () => {};
-  const OderData = (event) => {
+  const OderData = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.target;
-    const uerName = form.name.value;
-    const email = form.email.value;
-    const number = form.number.value;
-    const District = form.District.value;
-    const City = form.city.value;
+    const form = event.currentTarget;
+    const userName = (form.elements.namedItem("name") as HTMLInputElement)
+      .value;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+    const number = (form.elements.namedItem("number") as HTMLInputElement)
+      .value;
+    const District = (form.elements.namedItem("District") as HTMLInputElement)
+      .value;
+    const City = (form.elements.namedItem("city") as HTMLInputElement).value;
 
-    console.log(uerName, email, number, District, City);
-    toast.success("Your order confrim");
-
-    // const OrderDetails={
-    //   uerName,
-    //     email,
-    //     number,
-    //     City,
-    //     District,
-    //     StreetAddress,
-    //     name,
-    //     img,
-    //     category,
-    //     price
-    // }
+    console.log(userName, email, number, District, City);
+    toast.success("Your order confirmed");
   };
   return (
     <div>

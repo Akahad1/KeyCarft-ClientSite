@@ -3,10 +3,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useDeleteCartDataMutation } from "../../redux/Features/baseApi";
-import { useAppDispatch } from "../../redux/hook";
-import Checkout from "../../pages/Checkout";
+import { TcartProduct } from "../../pages/Cart";
 
-const AllCart = ({ cartProduct }) => {
+type AllCartProps = {
+  cartProduct: TcartProduct;
+};
+
+const AllCart: React.FC<AllCartProps> = ({ cartProduct }) => {
   const { _id, image, brand, title, quantity, price, rating } = cartProduct;
 
   const [DeleteCartData] = useDeleteCartDataMutation();
@@ -28,7 +31,7 @@ const AllCart = ({ cartProduct }) => {
 
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count - 1);
-  const totalPrice = count * parseInt(price);
+  const totalPrice = count * price;
 
   return (
     <div>
@@ -65,7 +68,7 @@ const AllCart = ({ cartProduct }) => {
             <div className="flex w-16 mt-3">
               <button
                 onClick={increment}
-                disabled={parseInt(quantity) <= count}
+                disabled={quantity <= count}
                 className=" text-2xl mr-5 btn"
               >
                 +
@@ -75,14 +78,17 @@ const AllCart = ({ cartProduct }) => {
                 onClick={decrement}
                 disabled={count <= 1}
                 className={`${"btn text-2xl ml-5"}`}
-              ></button>
+              >
+                {" "}
+                -
+              </button>
             </div>
             <div className="card-actions justify-end mt-5">
               <button className="btn " onClick={deleteCart}>
                 Delete Cart
               </button>
               <Link to={`/checkout/${_id}`}>
-                <button className="btn " disabled={parseInt(quantity) <= 0}>
+                <button className="btn " disabled={quantity <= 0}>
                   Chckout Page
                 </button>
               </Link>

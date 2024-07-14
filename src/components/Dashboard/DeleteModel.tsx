@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 import { useDeleteProductDataMutation } from "../../redux/Features/baseApi";
 
-const DeleteModel = ({ id }) => {
+const DeleteModel: React.FC<{ id: string }> = ({ id }) => {
   const [DeleteProductData] = useDeleteProductDataMutation();
   const deleteProduct = async () => {
     try {

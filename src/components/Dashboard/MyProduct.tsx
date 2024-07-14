@@ -1,14 +1,21 @@
 import { useGetProductQuery } from "../../redux/Features/baseApi";
+import { TProduct } from "../Home/AllProduct";
 import AddProduct from "./AddProduct";
 import DeleteModel from "./DeleteModel";
 import UpdateData from "./UpdateData";
 
-const MyProduct = () => {
+const MyProduct: React.FC = () => {
   const { data: AllProduct, isLoading } = useGetProductQuery([]);
   console.log(AllProduct);
   if (isLoading) {
     return <p>Loading..</p>;
   }
+  const openModal = (modalId: string) => {
+    const modal = document.getElementById(modalId) as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+    }
+  };
   return (
     <div>
       <div>
@@ -27,7 +34,7 @@ const MyProduct = () => {
               </tr>
             </thead>
             <tbody>
-              {AllProduct?.data?.map((order, i) => (
+              {AllProduct?.data?.map((order: TProduct, i: number) => (
                 <tr>
                   <th className="text-white">{i + 1}</th>
 
@@ -37,11 +44,7 @@ const MyProduct = () => {
 
                   <td>
                     <button
-                      onClick={() =>
-                        (
-                          document.getElementById("my_modal_3") as any
-                        ).showModal()
-                      }
+                      onClick={() => openModal("my_modal_3")}
                       className="btn"
                     >
                       Update
@@ -50,11 +53,7 @@ const MyProduct = () => {
                   </td>
                   <td>
                     <button
-                      onClick={() =>
-                        (
-                          document.getElementById("my_modal_2") as any
-                        ).showModal()
-                      }
+                      onClick={() => openModal("my_modal_2")}
                       className="btn"
                     >
                       Delete
@@ -67,9 +66,7 @@ const MyProduct = () => {
           </table>
           <div className="mt-20 flex justify-center">
             <button
-              onClick={() =>
-                (document.getElementById("my_modal_1") as any).showModal()
-              }
+              onClick={() => openModal("my_modal_1")}
               className="btn m-auto"
             >
               Add Product

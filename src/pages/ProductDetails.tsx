@@ -10,6 +10,9 @@ import {
 } from "../redux/Features/baseApi";
 import { useState } from "react";
 import { toast } from "sonner";
+// interface LoaderData<T> {
+//   data: T;
+// }
 
 const ProductDetails = () => {
   const [addCartData] = useAddCartDataMutation();
@@ -18,6 +21,7 @@ const ProductDetails = () => {
   const { data } = useLoaderData();
   const { _id, title, image, brand, quantity, description, price, rating } =
     data;
+
   const {
     data: data2,
 
