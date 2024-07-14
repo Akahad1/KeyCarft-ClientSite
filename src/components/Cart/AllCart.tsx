@@ -1,10 +1,28 @@
 import { Rating } from "@smastrom/react-rating";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
+import { useDeleteCartDataMutation } from "../../redux/Features/baseApi";
+import { useAppDispatch } from "../../redux/hook";
+import Checkout from "../../pages/Checkout";
 
 const AllCart = ({ cartProduct }) => {
   const { _id, image, brand, title, quantity, price, rating } = cartProduct;
+
+  const [DeleteCartData] = useDeleteCartDataMutation();
+  const deleteCart = async () => {
+    try {
+      const res = await DeleteCartData(_id);
+      console.log(res);
+      if (res?.error) {
+        toast.error("Something is rong");
+      } else {
+        toast.success("Delete Successfully");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const [count, setCount] = useState(1);
 
@@ -57,14 +75,16 @@ const AllCart = ({ cartProduct }) => {
                 onClick={decrement}
                 disabled={count <= 1}
                 className={`${"btn text-2xl ml-5"}`}
-              >
-                -
-              </button>
+              ></button>
             </div>
             <div className="card-actions justify-end mt-5">
-              <button className="btn ">Delete Cart</button>
+              <button className="btn " onClick={deleteCart}>
+                Delete Cart
+              </button>
               <Link to={`/checkout/${_id}`}>
-                <button className="btn ">Chckout Page</button>
+                <button className="btn " disabled={parseInt(quantity) <= 0}>
+                  Chckout Page
+                </button>
               </Link>
               <button></button>
             </div>

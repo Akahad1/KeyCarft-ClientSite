@@ -45,6 +45,9 @@ const ProductDetails = () => {
         rating,
       };
       setCartID(_id);
+      if (parseInt(quantity) < 1) {
+        return toast.error("This is Product StrockOut");
+      }
 
       res = await addCartData(myCart);
       console.log(res);
@@ -52,7 +55,7 @@ const ProductDetails = () => {
       console.log(err);
     }
 
-    if (data2?.data?.cartid === _id) {
+    if (data2) {
       setMacthData(data2);
       toast.success("Data add succesFully");
     } else {

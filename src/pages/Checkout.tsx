@@ -1,9 +1,17 @@
 import { AiFillPhone, AiOutlineMail } from "react-icons/ai";
 import { BsHouseAdd } from "react-icons/bs";
 import { RxAvatar } from "react-icons/rx";
+import { useLoaderData } from "react-router-dom";
 import { toast } from "sonner";
+import { useUpdateCartDataMutation } from "../redux/Features/baseApi";
 
-const Checkout = () => {
+const Checkout = ({ count }) => {
+  console.log(count);
+  const { data } = useLoaderData();
+  console.log(data);
+  // const [UpdateCartData] = useUpdateCartDataMutation();
+
+  const updateStoke = async () => {};
   const OderData = (event) => {
     event.preventDefault();
     const form = event.target;

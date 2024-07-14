@@ -36,6 +36,54 @@ export const baseApi = createApi({
         };
       },
     }),
+    UpdateCartData: builder.mutation({
+      query: (data) => {
+        console.log("ServerData", data);
+        return {
+          url: `/cart/${data.id}`,
+          method: "PATCH",
+          body: data.updateCart,
+        };
+      },
+    }),
+    addProductData: builder.mutation({
+      query: (data) => {
+        console.log("ServerData", data);
+        return {
+          url: `/product/create-products`,
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
+    UpdateProductData: builder.mutation({
+      query: (data) => {
+        console.log("ServerData", data);
+        return {
+          url: `/product/${data.id}`,
+          method: "PATCH",
+          body: data.updateProduct,
+        };
+      },
+    }),
+    DeleteProductData: builder.mutation({
+      query: (id) => {
+        console.log("id", id);
+        return {
+          url: `/product/${id}`,
+          method: "DELETE",
+        };
+      },
+    }),
+    DeleteCartData: builder.mutation({
+      query: (id) => {
+        console.log("id", id);
+        return {
+          url: `/cart/${id}`,
+          method: "DELETE",
+        };
+      },
+    }),
   }),
 });
 
@@ -44,4 +92,9 @@ export const {
   useAddCartDataMutation,
   useGetSpecificCartDaraQuery,
   useGetCartDataQuery,
+  useUpdateProductDataMutation,
+  useDeleteProductDataMutation,
+  useAddProductDataMutation,
+  useDeleteCartDataMutation,
+  useUpdateCartDataMutation,
 } = baseApi;

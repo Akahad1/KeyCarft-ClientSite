@@ -15,14 +15,13 @@ export type TProduct = {
 const AllProduct = () => {
   const { data, isLoading } = useGetProductQuery([]);
   if (isLoading) {
-    return <p>Loading.....</p>;
+    return <p className="text-white text-2xl">Loading.....</p>;
   }
-  console.log(data.data);
 
   return (
     <div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:ml-4 lg:mt-10 pb-6">
-        {data?.data?.slice(0, 6).map((SData: TProduct) => (
+        {data?.data?.slice(0, 6)?.map((SData: TProduct) => (
           <Product data={SData} key={SData._id}></Product>
         ))}
       </div>
