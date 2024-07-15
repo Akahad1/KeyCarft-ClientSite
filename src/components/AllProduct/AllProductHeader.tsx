@@ -1,24 +1,36 @@
-const AllProductHeader = () => {
+const AllProductHeader = ({ setQurey }) => {
   const sorthandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const sort = event.target.value;
+    setQurey(sort);
+    setQurey({ sort: sort });
 
     console.log(sort);
   };
   const getSearchValue = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value;
-    console.log(searchValue);
+
+    console.log({ searchTerm: searchValue });
+
+    if (searchValue) {
+      setQurey(searchValue);
+    } else {
+      setQurey("");
+    }
   };
   return (
     <div className="w-full">
-      <div className="lg:flex lg:justify-center  m-auto lg:pt-32 pb-32  pt-10">
-        <div>
-          <div className="form-control  lg:mr-20 lg:ml-96 md:mr-20 mr-32">
-            <div className="input-group navbar-center">
+      <div className="ml-10  lg:flex  md:flex md:justify-center lg:justify-center  m-auto lg:pt-16 pb-16  pt-10">
+        <div className="">
+          <button onClick={() => setQurey("")} className="btn w-72">
+            Clear filter
+          </button>
+          <div className="form-control  lg:mr-20 lg:ml-96 mt-10 md:mr-20 mr-32">
+            <div className="input-group ">
               <input
                 onChange={getSearchValue}
                 type="text"
                 placeholder="Search…"
-                className="input input-bordered md:w-96  lg:w-[400px]  p-2"
+                className="input input-bordered   lg:w-[400px] w-72  p-2"
               />
               {/* <button className="btn btn-square">
                 <svg
@@ -36,15 +48,15 @@ const AllProductHeader = () => {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-              </button> */}
+              </button>  */}
             </div>
           </div>
         </div>
-        <div className="input-group lg:mr-0 mr-1 md:mr-4">
+        <div className="input-group lg:mr-0 mr-1 md:mr-4 mt-5">
           <select
             onChange={sorthandler}
             name="sort"
-            className="select select-bordered  md:w-44 lg:w-96 lg:ml-24 navbar-end w-32"
+            className="select select-bordered   lg:w-96 lg:ml-24 navbar-end w-72"
           >
             <option selected>Default sorting</option>
             <option>Sort by price: low to hight </option>

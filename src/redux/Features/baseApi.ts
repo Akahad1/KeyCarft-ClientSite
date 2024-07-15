@@ -13,10 +13,14 @@ export const baseApi = createApi({
       }),
     }),
     getProduct: builder.query({
-      query: () => ({
-        url: "/product",
-        method: "GET",
-      }),
+      query: (query) => {
+        console.log("qurey", query);
+
+        return {
+          url: `/product?searchTerm=${query}&sort=${query.sort}`,
+          method: "GET",
+        };
+      },
     }),
 
     getSpecificCartDara: builder.query({
