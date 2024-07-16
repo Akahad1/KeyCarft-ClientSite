@@ -15,9 +15,10 @@ interface ProductProps {
     _id: string;
   };
 }
+
 const Product: React.FC<ProductProps> = ({ data }) => {
   useEffect(() => {
-    AOS.init({ duration: "1000" });
+    AOS.init({ duration: 1000 });
   }, []);
   const { title, image, brand, quantity, price, rating, _id } = data;
 

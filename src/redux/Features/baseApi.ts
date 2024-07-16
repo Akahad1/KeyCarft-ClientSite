@@ -4,13 +4,14 @@ import { TcartApiResponse } from "../../pages/Cart";
 export const baseApi = createApi({
   reducerPath: "baseApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/l2/a4" }),
-
+  tagTypes: ["cart", "poduct"],
   endpoints: (builder) => ({
     getCartData: builder.query<TcartApiResponse, void>({
       query: () => ({
         url: "/cart",
         method: "GET",
       }),
+      providesTags: ["cart"],
     }),
     getProduct: builder.query({
       query: (query) => {
@@ -21,6 +22,7 @@ export const baseApi = createApi({
           method: "GET",
         };
       },
+      providesTags: ["cart"],
     }),
 
     getSpecificCartDara: builder.query({
@@ -29,6 +31,7 @@ export const baseApi = createApi({
 
         method: "GET",
       }),
+      providesTags: ["cart"],
     }),
 
     addCartData: builder.mutation({
@@ -40,6 +43,7 @@ export const baseApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ["cart"],
     }),
     UpdateCartData: builder.mutation({
       query: (data) => {
@@ -50,6 +54,7 @@ export const baseApi = createApi({
           body: data.updateCart,
         };
       },
+      invalidatesTags: ["cart"],
     }),
     addProductData: builder.mutation({
       query: (data) => {
@@ -60,6 +65,7 @@ export const baseApi = createApi({
           body: data,
         };
       },
+      invalidatesTags: ["cart"],
     }),
     UpdateProductData: builder.mutation({
       query: (data) => {
@@ -70,6 +76,7 @@ export const baseApi = createApi({
           body: data.updateProduct,
         };
       },
+      invalidatesTags: ["cart"],
     }),
     DeleteProductData: builder.mutation({
       query: (id) => {
@@ -79,6 +86,7 @@ export const baseApi = createApi({
           method: "DELETE",
         };
       },
+      invalidatesTags: ["cart"],
     }),
     DeleteCartData: builder.mutation({
       query: (id) => {
@@ -88,6 +96,7 @@ export const baseApi = createApi({
           method: "DELETE",
         };
       },
+      invalidatesTags: ["cart"],
     }),
   }),
 });
