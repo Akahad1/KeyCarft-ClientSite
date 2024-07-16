@@ -10,11 +10,11 @@ Your Ultimate Destination for Custom Keyboards and Accessories.
 
 ## Project Description
 
-# Purpose:
+### Purpose:
 
 Key Craft is dedicated to providing keyboard enthusiasts and professionals with high-quality, customizable keyboards and accessories. Recognizing that a keyboard is an essential part of one's work and personal life, we aim to offer products that reflect individual preferences and enhance the typing experience.
 
-# Goals:
+### Goals:
 
 Enable users to personalize their keyboards with various options such as key switches, keycaps, layouts, and backlighting.
 Ensure all products are made from top-quality materials for durability and superior performance.
@@ -31,7 +31,7 @@ Build a vibrant community where keyboard enthusiasts can share their setups, see
 
 ## Technology Stack
 
-# List of technologies, frameworks, and tools used in the project.
+### List of technologies, frameworks, and tools used in the project.
 
 - React
 - Redux
