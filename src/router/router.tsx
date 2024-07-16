@@ -26,13 +26,17 @@ export const router = createBrowserRouter([
         path: "/product/:id",
         element: <ProductDetails></ProductDetails>,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/l2/a4/product/${params.id}`),
+          fetch(
+            `https://key-craft-server-site.vercel.app/l2/a4/product/${params.id}`
+          ),
       },
       {
         path: "/checkout/:id",
         element: <Checkout></Checkout>,
         loader: async ({ params }) =>
-          fetch(`http://localhost:5000/l2/a4/cart/${params.id}`),
+          fetch(
+            `https://key-craft-server-site.vercel.app/l2/a4/cart/${params.id}`
+          ),
       },
     ],
   },

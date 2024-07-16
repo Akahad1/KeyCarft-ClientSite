@@ -2,22 +2,24 @@ import { useState } from "react";
 import AllProductHeader from "../components/AllProduct/AllProductHeader";
 import Product from "../components/Home/Product";
 import { useGetProductQuery } from "../redux/Features/baseApi";
+import Loading from "../components/Loading/loaders";
+import { TProduct } from "../components/Home/AllProduct";
 
 const ProductsPage = () => {
-  const [qurey, setQurey] = useState("");
+  const [query, setQuery] = useState<string>("");
 
-  // const sort = "Sort by price: low to hight";
-  // setQurey(sort);
-  const { data, isLoading } = useGetProductQuery(qurey);
+  const { data, isLoading } = useGetProductQuery(query);
+
   if (isLoading) {
-    return <p>Loading....</p>;
+    return <Loading />;
   }
+
   return (
     <div>
-      <AllProductHeader setQurey={setQurey}></AllProductHeader>
+      <AllProductHeader setQuery={setQuery} />
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:ml-4 lg:pt-10 pb-6">
-        {data?.data?.map((Sdata) => (
-          <Product data={Sdata} key={Sdata._id}></Product>
+        {data?.data?.map((product: TProduct) => (
+          <Product data={product} key={product._id} />
         ))}
       </div>
     </div>

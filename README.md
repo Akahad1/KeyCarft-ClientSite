@@ -52,7 +52,6 @@ sourceType: 'module',
 project: ['./tsconfig.json', './tsconfig.node.json'],
 tsconfigRootDir: \_\_dirname,
 },
-}
 
 ```
 

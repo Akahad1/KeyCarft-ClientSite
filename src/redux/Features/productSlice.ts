@@ -7,6 +7,7 @@ type TinitialState = {
 const initialState: TinitialState = {
   cart: [],
 };
+
 const productSlice = createSlice({
   name: "products",
   initialState,

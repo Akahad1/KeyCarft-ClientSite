@@ -10,6 +10,8 @@ import {
 } from "../redux/Features/baseApi";
 import { useState } from "react";
 import { toast } from "sonner";
+import Loading from "../components/Loading/loaders";
+
 // interface LoaderData<T> {
 //   data: T;
 // }
@@ -29,7 +31,7 @@ const ProductDetails = () => {
   } = useGetSpecificCartDaraQuery(_id);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
 
   console.log("cartID", cartID);
@@ -49,7 +51,7 @@ const ProductDetails = () => {
         rating,
       };
       setCartID(_id);
-      if (parseInt(quantity) < 1) {
+      if (quantity < 1) {
         return toast.error("This is Product StrockOut");
       }
 
@@ -85,7 +87,7 @@ const ProductDetails = () => {
               <p className=" mb-1 text-white">{brand}</p>
               <p className=" mb-1 text-white">Quantity: {quantity}</p>
               <p className=" mb-1 text-white">Description: {description}</p>
-              <p className=" mb-1 text-white">Avarage Rating</p>
+              <p className=" mb-1 text-white"> Rating</p>
               <div>
                 <Rating
                   className="inline"

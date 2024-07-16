@@ -1,6 +1,7 @@
 import { AiFillPhone, AiOutlineMail } from "react-icons/ai";
 import { BsHouseAdd } from "react-icons/bs";
 import { RxAvatar } from "react-icons/rx";
+// import { useLoaderData } from "react-router-dom";
 import { toast } from "sonner";
 
 const Checkout = () => {

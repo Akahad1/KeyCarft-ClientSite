@@ -1,4 +1,5 @@
 import AllCart from "../components/Cart/AllCart";
+import Loading from "../components/Loading/loaders";
 import { useGetCartDataQuery } from "../redux/Features/baseApi";
 export type TcartProduct = {
   _id: string;
@@ -19,7 +20,7 @@ export type TcartApiResponse = {
 const Cart = () => {
   const { data: cartProducts, isLoading } = useGetCartDataQuery();
   if (isLoading) {
-    return <p>Loadding...</p>;
+    return <Loading></Loading>;
   }
   console.log(cartProducts);
   return (

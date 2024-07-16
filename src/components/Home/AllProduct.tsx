@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useGetProductQuery } from "../../redux/Features/baseApi";
 import Product from "./Product";
+import Loading from "../Loading/loaders";
 
 export type TProduct = {
   _id: string;
@@ -15,7 +16,7 @@ export type TProduct = {
 const AllProduct = () => {
   const { data, isLoading } = useGetProductQuery([]);
   if (isLoading) {
-    return <p className="text-white text-2xl">Loading.....</p>;
+    return <Loading></Loading>;
   }
 
   return (

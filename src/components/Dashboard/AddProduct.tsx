@@ -44,36 +44,6 @@ const AddProduct = () => {
     }
   };
 
-  // const AddProductData = async (event) => {
-  //   event.preventDefault();
-  //   const form = event.target;
-  //   const title = form.name.value;
-  //   const brand = form.brand.value;
-  //   const quantity = form.quantity.value;
-  //   const price = form.price.value;
-  //   const rating = form.rating.value;
-  //   const description = form.description.value;
-  //   const image = form.image.value;
-  //   try {
-  //     const updateProduct = {
-  //       image,
-  //       title,
-  //       description,
-  //       brand,
-  //       quantity: parseInt(quantity),
-  //       price: parseInt(price),
-  //       rating: parseInt(rating),
-  //     };
-  //     console.log(updateProduct);
-  //     const res = await addProductData(updateProduct);
-  //     console.log(res);
-  //     if (res.data) {
-  //       return toast.success("Product Add SuccessFully");
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
   return (
     <div>
       <div>

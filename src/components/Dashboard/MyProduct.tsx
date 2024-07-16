@@ -1,5 +1,6 @@
 import { useGetProductQuery } from "../../redux/Features/baseApi";
 import { TProduct } from "../Home/AllProduct";
+import Loading from "../Loading/loaders";
 import AddProduct from "./AddProduct";
 import DeleteModel from "./DeleteModel";
 import UpdateData from "./UpdateData";
@@ -8,7 +9,7 @@ const MyProduct: React.FC = () => {
   const { data: AllProduct, isLoading } = useGetProductQuery([]);
   console.log(AllProduct);
   if (isLoading) {
-    return <p>Loading..</p>;
+    return <Loading></Loading>;
   }
   const openModal = (modalId: string) => {
     const modal = document.getElementById(modalId) as HTMLDialogElement | null;

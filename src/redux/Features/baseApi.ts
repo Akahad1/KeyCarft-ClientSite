@@ -3,7 +3,9 @@ import { TcartApiResponse } from "../../pages/Cart";
 
 export const baseApi = createApi({
   reducerPath: "baseApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/l2/a4" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://key-craft-server-site.vercel.app/l2/a4",
+  }),
   tagTypes: ["cart", "poduct"],
   endpoints: (builder) => ({
     getCartData: builder.query<TcartApiResponse, void>({
