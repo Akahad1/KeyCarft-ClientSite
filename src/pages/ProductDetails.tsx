@@ -12,29 +12,41 @@ import { useState } from "react";
 import { toast } from "sonner";
 import Loading from "../components/Loading/loaders";
 
-// interface LoaderData<T> {
-//   data: T;
-// }
+interface ProductData {
+  _id: string;
+  title: string;
+  image: string;
+  brand: string;
+  quantity: number;
+  description: string;
+  price: number;
+  rating: number;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface LoaderData {
+  data: ProductData;
+  mesages: string;
+  success: boolean;
+}
 
 const ProductDetails = () => {
   const [addCartData] = useAddCartDataMutation();
   const [cartID, setCartID] = useState("");
   const [macthData, setMacthData] = useState("");
-  const { data } = useLoaderData();
+  const data = useLoaderData() as LoaderData;
+
   const { _id, title, image, brand, quantity, description, price, rating } =
-    data;
+    data.data;
 
-  const {
-    data: data2,
-
-    isLoading,
-  } = useGetSpecificCartDaraQuery(_id);
+  const { data: data2, isLoading } = useGetSpecificCartDaraQuery(_id);
 
   if (isLoading) {
     return <Loading></Loading>;
   }
 
-  console.log("cartID", cartID);
+  console.log("cartID", cartID, data);
   console.log("cartdata", data2);
 
   let res;

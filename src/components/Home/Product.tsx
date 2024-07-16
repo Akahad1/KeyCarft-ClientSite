@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+
 interface ProductProps {
   data: {
     title: string;
@@ -51,6 +52,9 @@ const Product: React.FC<ProductProps> = ({ data }) => {
           </Link>
         </div>
       </div>
+      {/* <div className="hidden">
+        <ProductDetails id={_id}></ProductDetails>
+      </div> */}
     </div>
   );
 };

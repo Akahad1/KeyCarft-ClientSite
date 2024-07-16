@@ -35,6 +35,17 @@ export const baseApi = createApi({
       }),
       providesTags: ["cart"],
     }),
+    getSpecificProductData: builder.query({
+      query: (id) => {
+        console.log(id);
+        return {
+          url: `/product/${id}`,
+
+          method: "GET",
+        };
+      },
+      providesTags: ["cart"],
+    }),
 
     addCartData: builder.mutation({
       query: (data) => {
@@ -113,4 +124,5 @@ export const {
   useAddProductDataMutation,
   useDeleteCartDataMutation,
   useUpdateCartDataMutation,
+  useGetSpecificProductDataQuery,
 } = baseApi;

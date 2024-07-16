@@ -1,11 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TcartProduct } from "../../pages/Cart";
+import { createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
-type TinitialState = {
-  cart: TcartProduct[];
-};
-const initialState: TinitialState = {
-  cart: [],
+const initialState = {
+  Qurey: "",
 };
 
 const productSlice = createSlice({
@@ -18,11 +15,15 @@ const productSlice = createSlice({
     // decrimentQuantity: (state, actions) => {
     //   state.quantity = state.quantity - parseInt(actions.payload);
     // },
-    removeCart: (state, action: PayloadAction<string>) => {
-      state.cart = state.cart.filter((item) => action.payload !== item._id);
+    // removeCart: (state, action: PayloadAction<string>) => {
+    //   state.cart = state.cart.filter((item) => action.payload !== item._id);
+    // },
+    addQurey: (state, action) => {
+      console.log("stateID", state.Qurey);
+      state.Qurey = action.payload;
     },
   },
 });
-// export const { incrimentQuantity, decrimentQuantity } = productSlice.actions;
+export const { addQurey } = productSlice.actions;
 export default productSlice.reducer;
-// export const useQuantity = (state: RootState) => state.product.quantity;
+export const useaddQurey = (state: RootState) => state.product.Qurey;
